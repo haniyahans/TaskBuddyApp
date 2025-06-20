@@ -60,7 +60,8 @@ TaskBuddy adalah aplikasi manajemen tugas berbasis Command Line Interface (CLI) 
 - Urutkan Tugas
 - Tandai Tugas Selesai
 - Lihat Log Aktivitas
-- Undo/Redo Aktivitas
+- Undo Aktivitas
+- Redo Aktivitas
 - Lihat Antrian User
 - Proses User Berikutnya
 - Hapus Member
@@ -72,7 +73,8 @@ TaskBuddy adalah aplikasi manajemen tugas berbasis Command Line Interface (CLI) 
 - Cari Tugas
 - Urutkan Tugas
 - Tandai Tugas Selesai
-- Undo/Redo Aktivitas
+- Undo Aktivitas
+- Redo Aktivitas
 - Lihat Antrian User
 - Proses User Berikutnya
 
