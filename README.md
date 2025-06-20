@@ -67,71 +67,70 @@ TaskBuddy adalah aplikasi manajemen tugas berbasis Command Line Interface (CLI) 
 [13] Hapus Member
 
 ### Menu Member
-- Tambah Subtugas
-- Lihat Semua Tugas
-- Hapus Tugas
-- Cari Tugas
-- Urutkan Tugas
-- Tandai Tugas Selesai
-- Undo Aktivitas
-- Redo Aktivitas
-- Lihat Antrian User
-- Proses User Berikutnya
+[1] Tambah Subtugas
+[2] Lihat Semua Tugas
+[3] Hapus Tugas
+[4] Cari Tugas
+[5] Urutkan Tugas
+[6] Tandai Tugas Selesai
+[7] Undo Aktivitas
+[8] Redo Aktivitas
+[9] Lihat Antrian User
+[10] Proses User Berikutnya
 
 ## Struktur File
 
 ```
 TaskBuddyApp/
-├── TaskBuddyApp.java       # Main application & UI
-├── Task.java               # Abstract task class
-├── SimpleTask.java         # Concrete task implementation
-├── TaskNode.java           # Tree node for task hierarchy
-├── TaskTreeManager.java    # Task tree operations
-├── TaskOperations.java     # Search & sort algorithms
-├── User.java              # User entity
-├── UserManager.java       # User management operations
-├── UserQueueManager.java  # Queue management system
-├── LogHistory.java        # Activity logging system
-├── LogNode.java          # Log entry node
-└── README.md             # Project documentation
+├── TaskBuddyApp.java       # Pusat aplikasi tempat login, registrasi, dan menu utama dijalankan
+├── Task.java               # Kelas abstrak dasar untuk representasi tugas
+├── SimpleTask.java         # Implementasi nyata dari tugas (Task), berisi nama, deskripsi, deadline, dll.
+├── TaskNode.java           # Node pohon yang mewakili tugas utama dan subtugas
+├── TaskTreeManager.java    # Pengelola struktur pohon tugas dan operasi tambah/hapus/cari
+├── TaskOperations.java     # Berisi algoritma pencarian dan pengurutan tugas
+├── User.java              # Representasi satu pengguna (username, password, role)
+├── UserManager.java       # Modul untuk registrasi, login, dan cek pengguna
+├── UserQueueManager.java  # Mengelola antrian user yang sedang login
+├── LogHistory.java        # Mencatat semua aktivitas penting selama penggunaan
+├── LogNode.java          # Node untuk tiap entri log (undo/redo)
+└── README.md             # Dokumentasi proyek
 ```
 
 ## Pembagian Tugas
 
 ### **Sabrina**
 **Fokus: Struktur Tugas (Tree)**
-- **TaskTreeManager.java**: Implementasi complete tree operations (addMainTask, addSubtask, findTaskNode, removeTask)
-- **TaskNode.java**: Node structure untuk implementasi tree hierarchy
-- **Task.java**: Abstract class design dengan encapsulation
-- **SimpleTask.java**: Concrete implementation dengan inheritance dan polymorphism
-- **Fitur**: Hierarchical task management, tree traversal, dan task CRUD operations
+- **TaskTreeManager.java**: Menangani seluruh operasi pohon tugas, seperti menambahkan tugas utama dan subtugas, mencari letak tugas, menghapus tugas, dan memperlihatkan struktur pohon tugas.
+- **TaskNode.java**: Struktur pohon yang mewakili hubungan antar tugas dan subtugas.
+- **Task.java**: Kelas abstrak sebagai blueprint untuk pembuatan tugas dan  mendeskripsikan data tugas secara umum.
+- **SimpleTask.java**: Implementasi konkret dari Task, memanfaatkan inheritance dan polymorphism.
+- **Fitur Utama**: Manajemen tugas secara hierarkis, traversal pohon, dan operasi CRUD pada tugas.
 
 ### **Mela** 
 **Fokus: Log Perubahan (Double Linked List)**
-- **LogHistory.java**: Implementasi complete double linked list untuk activity logging
-- **LogNode.java**: Node structure dengan timestamp dan navigation pointers
-- **Fitur**: Activity tracking, undo/redo system, dan history navigation
+- **LogHistory.java**: Mengelola riwayat aktivitas menggunakan double linked list yang mendukung fitur undo dan redo.
+- **LogNode.java**: Struktur node log yang menyimpan informasi aktivitas beserta timestamp dan pointer navigasi.
+- **Fitur Utama**: Pelacakan aktivitas pengguna, sistem undo/redo, dan navigasi histori aktivitas.
 - **Algoritma**: Double linked list traversal untuk efficient undo/redo operations
 
 ### **Lingga** 
 **Fokus: Antrian User (Queue)**
-- **UserQueueManager.java**: Implementasi complete queue management system
-- **Fitur**: FIFO user queue, queue display, user processing, dan queue removal
-- **Algoritma**: Queue operations (enqueue, dequeue, display) dengan LinkedList implementation
+- **UserQueueManager.java**: Menyediakan sistem manajemen antrian pengguna berbasis FIFO.
+- **Fitur Utama**: Menambahkan pengguna ke antrian saat berhasil login, menampilkan antrian, memproses pengguna berikutnya, dan menghapus dari antrian.
+- **Algoritma**:Menggunakan struktur data LinkedList sebagai dasar implementasi queue.
 
 ### **Shabree** 
 **Fokus: Sorting dan Searching**
-- **TaskOperations.java**: Implementasi complete search dan sort algorithms
-- **Linear Search**: Pencarian tugas berdasarkan nama dan deskripsi
-- **Bubble Sort**: Pengurutan berdasarkan prioritas dan deadline
-- **Integration**: Method `searchTask()` dan `sortTasks()` di TaskBuddyApp, serta method `getTaskInfo()` di SimpleTask.java
+- **TaskOperations.java**: Mengimplementasikan algoritma pencarian dan pengurutan untuk daftar tugas.
+- **Linear Search**: Mencari tugas berdasarkan kata kunci pada nama atau deskripsi tugas.
+- **Bubble Sort**: Mengurutkan tugas berdasarkan prioritas (dari paling tinggi ke paling rendah, dengan angka 1 sebagai prioritas tertinggi). Jika ada tugas dengan prioritas yang sama, maka akan diurutkan berdasarkan deadline terdekat.
+- **Integrasi**: Digunakan oleh TaskBuddyApp melalui method searchTask() dan sortTasks(), serta method getTaskInfo() pada SimpleTask.java.
 
 ### **Hani** 
 **Fokus: Manajemen Pengguna dan Peran**
-- **UserManager.java**: Complete user management system
-- **User.java**: User entity dengan role-based access control
-- **Fitur**: User registration, authentication, role management, dan user deletion
-- **Security**: Password validation dan role-based menu access
+- **UserManager.java**: Mengelola proses registrasi, login, penghapusan pengguna, serta validasi akun.
+- **User.java**: Kelas yang merepresentasikan satu akun pengguna dalam sistem, berisi informasi username, password, dan role.
+- **Fitur**: Sistem autentikasi, kontrol akses berdasarkan peran (Admin / User), dan validasi input pengguna.
 
 ## Format Input
 
