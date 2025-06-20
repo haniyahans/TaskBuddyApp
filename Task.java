@@ -15,44 +15,45 @@ public abstract class Task {//penerapan abstrac dari oop (untuk bikin blueprint 
     }
     public abstract String getTaskInfo();//method abstrak untuk blueprint di kelas turunannya (deskripsi tugas)
 //-----------------------------------------------------------SHABRE---------------------------------------------------
-    public String getName() {
+    //enkapsulasi get
+    public String getName() { //mengembalikan nilai dari variabel instance 'name'
         return name;
-    }
+    }  
     
-    public String getDescription() {
+    public String getDescription() {  //mengembalikan nilai dari variabel instance 'description'
         return description;
     }
 
-    public int getPriority() {
+    public int getPriority() {  //mengembalikan nilai dari variabel instance 'priority'
         return priority;
     }
 
-    public LocalDate getDeadline() {
+    public LocalDate getDeadline() {  //mengembalikan nilai dari variabel instance 'deadline'
         return deadline;
     }
 
-    public boolean isCompleted() {
+    public boolean isCompleted() {  //mengembalikan nilai dari variabel instance 'isCompleted'
         return isCompleted;
     }
 
     //enkapsulasi set
-    public void setName(String name){
+    public void setName(String name){ //Mengatur variabel instance 'name' objek saat ini dengan nilai yang diberikan dari parameter 'name'
         this.name = name;
     }
 
-    public void setDescription(String description){
+    public void setDescription(String description){ //Mengatur variabel instance 'description' dengan nilai yang diberikan
         this.description = description;
     }
 
-    public void setPriority(int priority){
+    public void setPriority(int priority){ //Mengatur variabel instance 'priority' dengan nilai yang diberikan
         this.priority = priority;
     }
 
-    public void setDeadline(LocalDate deadline){
+    public void setDeadline(LocalDate deadline){ //Mengatur variabel instance 'deadline'dengan nilai yang diberikan
         this.deadline = deadline;
     }
 
-    public void setCompleted(boolean completed){
+    public void setCompleted(boolean completed){ // Mengatur variabel instance 'isCompleted' dengan nilai yang diberikan
         isCompleted = completed;
     }
 }
