@@ -7,30 +7,30 @@ TaskBuddy adalah aplikasi manajemen tugas berbasis Command Line Interface (CLI) 
 ## Fitur Utama
 
 ### Sistem Autentikasi
-- **Login & Registrasi**: Sistem keamanan dengan username dan password
-- **Role-based Access**: Dua tingkat akses (Admin dan Member)
-- **User Queue Management**: Sistem antrian pengguna untuk pengelolaan akses
+- **Login & Registrasi**: Pengguna dapat membuat akun dan masuk menggunakan kombinasi username dan password yang aman.
+- **Akses Berdasarkan Peran (Role-Based Access)**: Sistem mendukung dua jenis peran: Admin dan Member, masing-masing dengan hak akses berbeda.
+- **Manajemen Antrian Pengguna**: Setiap pengguna yang login akan dimasukkan ke dalam antrian untuk pengelolaan akses secara teratur.
 
 ### Manajemen Tugas
-- **Hierarki Tugas**: Struktur pohon dengan tugas utama dan subtugas
-- **Detail Tugas Lengkap**: Nama, deskripsi, prioritas (High/Medium/Low), deadline, dan status
-- **CRUD Operations**: Create, Read, Update, Delete untuk semua tugas
-- **Status Tracking**: Pelacakan status penyelesaian tugas
+- **Struktur Hirarki Tugas**: Tugas diorganisasi dalam bentuk pohon, memungkinkan penambahan tugas utama dan subtugas secara bertingkat.
+- **Detail Tugas yang Lengkap**: Setiap tugas menyimpan informasi penting seperti nama, deskripsi, prioritas (Tinggi/Sedang/Rendah), deadline, dan status penyelesaian.
+- **Operasi CRUD**: Pengguna dapat membuat, melihat, mengubah, dan menghapus tugas yang dimiliki.
+- **Pelacakan Status Tugas**: Tugas dapat ditandai sebagai selesai untuk mempermudah manajemen dan progres.
 
 ### Pencarian & Pengurutan
-- **Linear Search**: Pencarian berdasarkan nama atau deskripsi tugas
-- **Bubble Sort**: Pengurutan otomatis berdasarkan prioritas dan deadline
-- **Filter Results**: Hasil pencarian yang akurat dan relevan
+- **Pencarian Linear**: Fitur pencarian memungkinkan pengguna mencari tugas berdasarkan nama atau deskripsi.
+- **Pengurutan Otomatis**: Tugas dapat diurutkan berdasarkan prioritas dan deadline menggunakan algoritma Bubble Sort.
+- **Filter Hasil yang Relevan**: Menampilkan hasil pencarian secara akurat sesuai kata kunci yang dimasukkan pengguna.
 
 ### Logging & History
-- **Activity Log**: Pencatatan semua aktivitas pengguna dengan timestamp
-- **Undo/Redo System**: Kemampuan membatalkan dan mengulangi aksi
-- **Double Linked List**: Navigasi riwayat yang efisien
+- **Catatan Aktivitas Pengguna**: Setiap aksi yang dilakukan pengguna dicatat dalam log beserta waktu kejadian (timestamp).
+- **Undo & Redo**: Pengguna dapat membatalkan atau mengulangi aktivitas terakhir dengan mudah.
+- **Struktur Double Linked List**: Riwayat disimpan menggunakan struktur data double linked list untuk navigasi yang efisien ke depan dan ke belakang.
 
 ### User Management
-- **Queue System**: Antrian pengguna dengan implementasi FIFO
-- **Member Management**: Admin dapat menghapus member
-- **Real-time User Tracking**: Pelacakan pengguna aktif
+- **Antrian Login**: Sistem mencatat urutan login pengguna dengan metode FIFO (First In, First Out).
+- **Manajemen Anggota oleh Admin**: Admin memiliki kemampuan untuk menghapus member dari sistem.
+- **Pemantauan Pengguna Aktif**: Admin dapat melihat dan memproses siapa saja yang sedang aktif dalam sistem.
 
 ## Arsitektur Sistem
 
