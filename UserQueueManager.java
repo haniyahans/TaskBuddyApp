@@ -7,7 +7,8 @@ public class UserQueueManager {
     private Queue<User> userQueue = new LinkedList<>();
 
     // Method untuk menambahkan user ke dalam antrian saat berhasil login. 
-    // Jika user sudah ada, user lama akan dihapus dan digantikan dengan yang baru (update posisi) ditambahkan diakhir antrian.
+    // Jika user sudah ada dalam antrian, user lama akan dihapus terlebih dahulu,
+    // lalu user tersebut ditambahkan kembali di bagian belakang antrian (posisi terbaru).
     public void addUserToQueue(User user) {
         for (User u : userQueue) {
             if (u.getUsername().equals(user.getUsername())) {
