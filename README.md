@@ -1,5 +1,5 @@
 # TaskBuddy Application
-**Tugas Akhir Praktikum Pemrograman Lanjut SI-C**
+**Tugas Akhir Praktikum Pemrograman Lanjut SI-C Kelompok 5**
 
 ## Deskripsi Aplikasi
 TaskBuddy adalah aplikasi manajemen tugas berbasis Command Line Interface (CLI) yang dirancang untuk membantu pengguna mengorganisir dan mengelola tugas-tugas mereka secara efisien. Aplikasi ini mendukung sistem hierarki tugas dengan kemampuan menambahkan tugas utama dan subtugas, serta dilengkapi dengan fitur pencarian, pengurutan, dan sistem logging aktivitas.
