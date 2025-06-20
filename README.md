@@ -52,19 +52,19 @@ TaskBuddy adalah aplikasi manajemen tugas berbasis Command Line Interface (CLI) 
 3. **Keluar dari Aplikasi** - Menutup aplikasi
 
 ### Menu Admin
-- Tambah Tugas Utama
-- Tambah Subtugas
-- Lihat Semua Tugas
-- Hapus Tugas
-- Cari Tugas
-- Urutkan Tugas
-- Tandai Tugas Selesai
-- Lihat Log Aktivitas
-- Undo Aktivitas
-- Redo Aktivitas
-- Lihat Antrian User
-- Proses User Berikutnya
-- Hapus Member
+[1] Tambah Tugas Utama
+[2] Tambah Subtugas
+[3] Lihat Semua Tugas
+[4] Hapus Tugas
+[5] Cari Tugas
+[6] Urutkan Tugas
+[7] Tandai Tugas Selesai
+[8] Lihat Log Aktivitas
+[9] Undo Aktivitas
+[10] Redo Aktivitas
+[11] Lihat Antrian User
+[12] Proses User Berikutnya
+[13] Hapus Member
 
 ### Menu Member
 - Tambah Subtugas
@@ -124,7 +124,7 @@ TaskBuddyApp/
 - **TaskOperations.java**: Implementasi complete search dan sort algorithms
 - **Linear Search**: Pencarian tugas berdasarkan nama dan deskripsi
 - **Bubble Sort**: Pengurutan berdasarkan prioritas dan deadline
-- **Integration**: Method `searchTask()` dan `sortTasks()` di TaskBuddyApp
+- **Integration**: Method `searchTask()` dan `sortTasks()` di TaskBuddyApp, serta method `getTaskInfo()` di SimpleTask.java
 
 ### **Hani** 
 **Fokus: Manajemen Pengguna dan Peran**
@@ -154,22 +154,13 @@ admin  = Akses penuh
 member = Akses terbatas
 ```
 
-## Fitur Unggulan
-- **Hierarchical Task Management** - Organisasi tugas bertingkat
-- **Smart Search & Sort** - Pencarian cerdas dengan pengurutan otomatis
-- **Activity Tracking** - Pelacakan semua aktivitas dengan timestamp
-- **Undo/Redo System** - Kontrol penuh atas perubahan yang dilakukan
-- **Multi-User Support** - Sistem multi-pengguna dengan role management
-- **Queue Management** - Sistem antrian yang efisien
-- **Clean CLI Interface** - Interface yang user-friendly dan intuitif
-
 ## Informasi Pengembang
 **Kelompok 5 SI-C - Praktikum Pemrograman Lanjut**
 - **Sabrina**: Struktur Tugas (Tree Implementation)
 - **Mela**: Log Perubahan (Double Linked List System)
 - **Lingga**: Antrian User (Queue Management)
-- **Shabree**: Sorting dan Searching (Algorithms)
+- **Shabree**: Searching dan Sorting (Algorithms)
 - **Hani**: Manajemen Pengguna dan Peran (User Management)
-- **Tim**: Menu CLI & Logika Utama (Integration)
+- **Semua Anggota Tim**: Menu CLI & Logika Utama (Integration)
 
 ---
