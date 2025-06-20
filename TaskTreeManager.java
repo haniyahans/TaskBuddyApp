@@ -33,7 +33,7 @@ public class TaskTreeManager {//kumpulan method (4 method) yang akan atur tree t
             TaskNode found = findTaskNodeRecursive(sub, taskName);
             if (found != null) return found;//cari di subtugas, klo ada keluarin
         }
-        return null;//klo ga ditemuin samsek return null
+        return null;//klo ga ditemuin sama sekali, maka return null
     }
 //---------------------------------------------------------METHOD 4-HAPUS TUGAS---------------------------------------------------//
     public boolean removeTask(String taskName) {
