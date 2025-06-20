@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 public abstract class Task {//penerapan abstrac dari oop (untuk bikin blueprint deskripsi tugas)
-    protected String name;//enkapsulasi
+    protected String name;
     protected String description;
     protected int priority; 
     protected LocalDate deadline;
@@ -13,7 +13,7 @@ public abstract class Task {//penerapan abstrac dari oop (untuk bikin blueprint 
         this.deadline = deadline;
         this.isCompleted = false;//default, jadi setiap bikin objek baru tugasnya akan blm selesai
     }
-    public abstract String getTaskInfo();//method abstrak untuk blueprint di kelas turunannya (deskripsi tugas)
+    public abstract String getTaskInfo();//method abstrak untuk blueprint di kelas SimpleTask (berisi deskripsi tugas)
 //-----------------------------------------------------------SHABRE---------------------------------------------------
     //enkapsulasi get
     public String getName() { //mengembalikan nilai dari variabel instance 'name'
