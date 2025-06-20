@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 public class TaskTreeManager {//kumpulan method (4 method) yang akan atur tree tugas
-    private LinkedList<TaskNode> mainTasks;//untuk simpan root tugas
+    private LinkedList<TaskNode> mainTasks;//untuk simpan root tugas (tugas utama)
 //---------------------------------------------------------KONSTRUKTOR--------------------------------------------------------------//
     public TaskTreeManager() {
         mainTasks = new LinkedList<>();
@@ -11,68 +11,68 @@ public class TaskTreeManager {//kumpulan method (4 method) yang akan atur tree t
     }
 //---------------------------------------------------------METHOD 2-TAMBAH SUB TUGAS-----------------------------------------------//
     public boolean addSubtask(String parentTaskName, Task subtask) {
-        TaskNode parent = findTaskNode(parentTaskName);//cari parentnya trs masukin subnya
+        TaskNode parent = findTaskNode(parentTaskName);//cari parentnya terus masukin sub tugas nya
         if (parent != null) {
             parent.subtasks.add(new TaskNode(subtask));
-            return true;//klo berhasil tambah subtree return true
+            return true;//jika berhasil tambah sub tugas return true
         }
-        return false;//klo parentnya null maka return false
+        return false;//jika parentnya null maka return false
     }
 //---------------------------------------------------------METHOD 3-CARI TUGAS----------------------------------------------------//
     public TaskNode findTaskNode(String taskName) {
         for (TaskNode mainTask : mainTasks) {//cari di setiap tugas utama
-            TaskNode found = findTaskNodeRecursive(mainTask, taskName);//pada tiap tugas utama tadi telusuri ke akar2 nya juga
-            if (found != null) return found;//return klo ketemu
+            TaskNode found = findTaskNodeRecursive(mainTask, taskName);//pada tiap tugas utama tadi telusuri ke akar-akar nya juga
+            if (found != null) return found;//return jika ketemu tugas yang dicari
         }
-        return null;//klo ga ketemu return null
+        return null;//jika tidak ditemukan return null
     }
-    private TaskNode findTaskNodeRecursive(TaskNode node, String taskName) {//untuk dimasukin ke findTaskNode (cari secara rekursif)
-        if (node == null) return null;//klo tugas utama kosong balikin null
-        if (node.task.name.equalsIgnoreCase(taskName)) return node;//cari di tugas utama, klo ada keluarin
+    private TaskNode findTaskNodeRecursive(TaskNode node, String taskName) {//untuk dimasukkan ke findTaskNode (cari secara rekursif)
+        if (node == null) return null;//jika tugas utama kosong maka return null
+        if (node.task.name.equalsIgnoreCase(taskName)) return node;//cari di tugas utama, jika ada maka keluarkan
         for (TaskNode sub : node.subtasks) {
             TaskNode found = findTaskNodeRecursive(sub, taskName);
-            if (found != null) return found;//cari di subtugas, klo ada keluarin
+            if (found != null) return found;//cari di subtugas, jika ada maka keluarkan
         }
-        return null;//klo ga ditemuin sama sekali, maka return null
+        return null;//jika tidak ditemukan sama sekali, maka return null
     }
 //---------------------------------------------------------METHOD 4-HAPUS TUGAS---------------------------------------------------//
     public boolean removeTask(String taskName) {
         for (TaskNode mainTask : mainTasks) {//hapus tugas utama
             if (mainTask.task.name.equalsIgnoreCase(taskName)) {//cocokin nama tugas utama
-                mainTasks.remove(mainTask);//klo bener maka hapus
+                mainTasks.remove(mainTask);//jika benar maka hapus
                 return true;//dan return true
             }
         }
         for (TaskNode mainTask : mainTasks) { //Jika bukan main task, cari di subtasks
-            if (removeTaskRecursive(mainTask, taskName)) {//telusuri tiap subnya, klo ada hapus
+            if (removeTaskRecursive(mainTask, taskName)) {//telusuri tiap subnya, jika ada maka hapus
                 return true;//dan return true
             }
         }
         return false;
     }
-    private boolean removeTaskRecursive(TaskNode parent, String taskName) {//untuk dimasukin ke removeTask (hapus subtugas)
+    private boolean removeTaskRecursive(TaskNode parent, String taskName) {//untuk dimasukkan ke removeTask (hapus subtugas)
         for (TaskNode child : parent.subtasks) {//loop dari tugas utama 
             if (child.task.name.equalsIgnoreCase(taskName)) {
                 parent.subtasks.remove(child);//hapus subtugasnya lalu return true
                 return true;
             }
-            if (removeTaskRecursive(child, taskName)) return true;//klo gaketemu loop lgi di subnya
+            if (removeTaskRecursive(child, taskName)) return true;//jika tidak ditemukan maka loop lgi di sub tugasnya
         }
-        return false;//return false klo ga ketemu yg dihapus
+        return false;//return false klo tidak ditemukan yang akan dihapus
     }
 //---------------------------------------------------------METHOD SHABRE---------------------------------------------------------//
-    public LinkedList<Task> getAllTasksRecursive() {//untuk keluarin semua tugas
+    public LinkedList<Task> getAllTasksRecursive() {//untuk mengeluarkan semua tugas
         LinkedList<Task> allTasks = new LinkedList<>();//list untuk tampung semua tugasnya
         for (TaskNode mainTask : mainTasks) {//untuk masukin semua tugas dari rootnya
             collectTasks(mainTask, allTasks);
         }
-        return allTasks;//kembaliin semua tugas
+        return allTasks;//return semua tugas
     }
-    private void collectTasks(TaskNode node, LinkedList<Task> list) {///untuk dimasukin ke getAllTasksRecursive(kumpulin semua tugas)
-        if (node == null) return;//klo tugas utama ga ada keluar dari method
-        list.add(node.task);//tambahin tugas utama ke list
+    private void collectTasks(TaskNode node, LinkedList<Task> list) {///untuk dimasukkan ke getAllTasksRecursive (kumpulin semua tugas)
+        if (node == null) return;//jika tugas utama tidak ada maka keluar dari method
+        list.add(node.task);//menambah tugas utama ke list
         for (TaskNode sub : node.subtasks) {
-            collectTasks(sub, list);//tambahin sub tugas ke list
+            collectTasks(sub, list);//menambah sub tugas ke list
         }
     }
 //---------------------------------------------------------TAMBAHAN-DISPLAY TREE------------------------------------------------//
@@ -83,12 +83,12 @@ public class TaskTreeManager {//kumpulan method (4 method) yang akan atur tree t
         }
         for (TaskNode mainTask : mainTasks) { //mulai tampilin secara rekursif dari root
             displayTreeRecursive(mainTask, "");
-            System.out.println(); //Pemisah antar main task
+            System.out.println(); //pemisah antar main task
             }
     }
     private void displayTreeRecursive(TaskNode node, String indent) {//rekursif untuk tampilin
         if (node == null) return;//jika tugas utama kosong keluar dari method
-        System.out.println(indent + "- " + node.task.name);//tampilin nama tugas, untuk liatin level
+        System.out.println(indent + "- " + node.task.name);//tampilin nama tugas, untuk memperlihatkan level
         for (TaskNode sub : node.subtasks) {//loop subtugas
             displayTreeRecursive(sub, indent + "  ");//tampilin subtugas
         }
