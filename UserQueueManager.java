@@ -6,15 +6,15 @@ public class UserQueueManager {
     // Mendeklarasikan struktur data Queue menggunakan LinkedList untuk menyimpan objek User
     private Queue<User> userQueue = new LinkedList<>();
 
-    // Method untuk menambahkan user ke dalam antrian pada saat berhasil login
+    // Method untuk menambahkan user ke dalam antrian saat berhasil login. 
+    // Jika user sudah ada, user lama akan dihapus dan digantikan dengan yang baru (update posisi) ditambahkan diakhir antrian.
     public void addUserToQueue(User user) {
         for (User u : userQueue) {
             if (u.getUsername().equals(user.getUsername())) {
-                userQueue.remove(u); // Jika user sudah ada di antrean, hapus user lama dari antrian
+                userQueue.remove(u);
                 break;
             }
         }
-        // Tambahkan user baru ke akhir antrian
         userQueue.add(user);
         System.out.println("User '" + user.getUsername() + "' ditambahkan ke antrian.");
     }
@@ -45,7 +45,7 @@ public class UserQueueManager {
         return nextUser;
     }
 
-    // Method untuk menghapus user tertentu dari antrian berdasarkan username ketika di hapus dari sistem
+    // Method untuk menghapus user tertentu dari antrian berdasarkan username, misalnya saat user dihapus dari sistem.
     public void removeUserFromQueue(String username) {
         boolean removed = userQueue.removeIf(u -> u.getUsername().equals(username));
         if (removed) {
