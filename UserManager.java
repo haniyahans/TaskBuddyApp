@@ -22,7 +22,7 @@ public class UserManager {
         return null;
     }
 
-    // Metode untuk mendaftarkan user baru
+    // Method untuk mendaftarkan user baru
     public boolean registerUser(String username, String password, String role){
         // Jika username sudah digunakan, tidak akan mendaftarkan user baru
         // Mengembalikan true jika berhasil mendaftar, false jika gagal
@@ -35,7 +35,7 @@ public class UserManager {
         return true;
     }
 
-    // Metode untuk mendapatkan daftar user
+    // Method untuk mendapatkan daftar user
     public User loginUser(String username, String password){
         // Mencari user berdasarkan username dan memeriksa password
         User user = findUser(username);
@@ -51,11 +51,11 @@ public class UserManager {
         }
     }
 
-    // Metode untuk menghapus user berdasarkan username dengan pengecekan role
+    // Method untuk menghapus user berdasarkan username dengan pengecekan role
     public boolean deleteUser(String username) {
         // Mencari user berdasarkan username
         User userToRemove = findUser(username);
-        // Jika user ditemukan, memeriksa role
+        // Jika user ditemukan, periksa rolenya
         if (userToRemove != null) {
             // Jika user adalah member, bisa dihapus dari daftar user dan antrian
             if (userToRemove.getRole().equalsIgnoreCase("member")) {
